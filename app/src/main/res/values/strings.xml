@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">PracticalTest2</string>
+    <string name="server">server</string>
+    <string name="server_port">port</string>
+    <string name="connect">connect</string>
+    <string name="client">client</string>
+    <string name="client_address">address</string>
+    <string name="client_port">port</string>
+    <string name="city">city</string>
+    <string name="get_weather_forecast">get weather forecast</string>
+    <string-array name="information_types">
+        <item>temperature</item>
+        <item>wind_speed</item>
+        <item>condition</item>
+        <item>pressure</item>
+        <item>humidity</item>
+        <item>all</item>
+    </string-array>
+</resources>
