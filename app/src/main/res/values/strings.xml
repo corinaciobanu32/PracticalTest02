@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">PracticalTest2</string>
+    <string name="app_name">PracticalTest02</string>
     <string name="server">server</string>
     <string name="server_port">port</string>
     <string name="connect">connect</string>
@@ -7,13 +7,12 @@
     <string name="client_address">address</string>
     <string name="client_port">port</string>
     <string name="city">city</string>
-    <string name="get_weather_forecast">get weather forecast</string>
+    <string name="get_value">GET VALUE</string>
+    <string name="client_key">key</string>
+    <string name="client_value">value</string>
+    <string name="server_value">SERVER VALUE</string>
     <string-array name="information_types">
-        <item>temperature</item>
-        <item>wind_speed</item>
-        <item>condition</item>
-        <item>pressure</item>
-        <item>humidity</item>
-        <item>all</item>
+        <item>get</item>
+        <item>put</item>
     </string-array>
 </resources>

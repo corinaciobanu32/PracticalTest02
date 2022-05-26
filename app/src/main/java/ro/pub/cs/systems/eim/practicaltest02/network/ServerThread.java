@@ -9,7 +9,7 @@ import java.util.HashMap;
 
 import cz.msebera.android.httpclient.client.ClientProtocolException;
 import ro.pub.cs.systems.eim.practicaltest02.general.Constants;
-import ro.pub.cs.systems.eim.practicaltest02.model.WeatherForecastInformation;
+import ro.pub.cs.systems.eim.practicaltest02.model.TimedKey;
 
 public class ServerThread extends Thread{
     private boolean isRunning;
@@ -17,7 +17,7 @@ public class ServerThread extends Thread{
     private int port = 0;
     private ServerSocket serverSocket = null;
 
-    private HashMap<String, WeatherForecastInformation> data = null;
+    private HashMap<String, TimedKey> data = null;
 
     public ServerThread(int port) {
         this.port = port;
@@ -36,12 +36,13 @@ public class ServerThread extends Thread{
         return serverSocket;
     }
 
-    public HashMap<String, WeatherForecastInformation> getData() {
+    public HashMap<String, TimedKey> getData() {
         return data;
     }
 
-    public void setData(String city,WeatherForecastInformation newData) {
-        data.put(city, newData);
+    public void setData(String key, TimedKey newData) {
+        data.put(key, newData);
+        Log.i(Constants.TAG, "[SERVER THREAD]Added..."+key+newData.getTime()+newData.getValue());
     }
 
     @Override

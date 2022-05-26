@@ -15,18 +15,20 @@ public class ClientThread extends Thread{
 
     private String address;
     private int port;
-    private String city;
-    private String informationType;
-    private TextView weatherForecastTextView;
+    private String key;
+    private String value;
+    private TextView serverValueTextView;
+    private String operationType;
 
     private Socket socket;
 
-    public ClientThread(String address, int port, String city, String informationType, TextView weatherForecastTextView) {
+    public ClientThread(String address, int port, String key, String value, String operationType, TextView serverValueTextView) {
         this.address = address;
         this.port = port;
-        this.city = city;
-        this.informationType = informationType;
-        this.weatherForecastTextView = weatherForecastTextView;
+        this.key = key;
+        this.value = value;
+        this.operationType = operationType;
+        this.serverValueTextView = serverValueTextView;
     }
 
     @Override
@@ -43,20 +45,26 @@ public class ClientThread extends Thread{
                 Log.e(Constants.TAG, "[CLIENT THREAD] Buffered Reader / Print Writer are null!");
                 return;
             }
-            printWriter.println(city);
+            printWriter.println(operationType);
             printWriter.flush();
-            printWriter.println(informationType);
-            printWriter.flush();
-            String weatherInformation;
-            while ((weatherInformation = bufferedReader.readLine()) != null) {
-                final String finalizedWeateherInformation = weatherInformation;
-                weatherForecastTextView.post(new Runnable() {
+            if (operationType.equals(Constants.GET)){
+                printWriter.println(key);
+                printWriter.flush();
+            }
+            else{
+                printWriter.println(key);
+                printWriter.flush();
+                printWriter.println(value);
+                printWriter.flush();
+            }
+            String finKeyInfo;
+           finKeyInfo = bufferedReader.readLine();
+                serverValueTextView.post(new Runnable() {
                     @Override
                     public void run() {
-                        weatherForecastTextView.setText(finalizedWeateherInformation);
+                        serverValueTextView.setText(finKeyInfo);
                     }
                 });
-            }
         } catch (IOException ioException) {
             Log.e(Constants.TAG, "[CLIENT THREAD] An exception has occurred: " + ioException.getMessage());
             if (Constants.DEBUG) {

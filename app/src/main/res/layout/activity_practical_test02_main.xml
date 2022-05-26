@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="ro.pub.cs.systems.eim.practicaltest02.view.MainActivity">
+    tools:context="ro.pub.cs.systems.eim.practicaltest02.view.PracticalTest02MainActivity">
 
     <TextView
         android:layout_width="wrap_content"
@@ -94,20 +94,44 @@
 
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:baselineAligned="false">
+
+        <ScrollView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <EditText
+                android:id="@+id/client_key_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/client_key"/>
+
+        </ScrollView>
+
+        <ScrollView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <EditText
+                android:id="@+id/client_value_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/client_value"/>
+
+        </ScrollView>
+
+    </LinearLayout>
+
     <GridLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:rowCount="2"
         android:columnCount="2">
-
-        <EditText
-            android:id="@+id/city_edit_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="5"
-            android:hint="@string/city"
-            android:layout_row="0"
-            android:layout_column="0"/>
 
         <Spinner
             android:id="@+id/information_type_spinner"
@@ -118,11 +142,11 @@
             android:layout_column="0"/>
 
         <Button
-            android:id="@+id/get_weather_forecast_button"
+            android:id="@+id/value_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="@string/get_weather_forecast"
+            android:text="@string/server_value"
             android:layout_row="0"
             android:layout_rowSpan="2"
             android:layout_column="1"/>
@@ -134,7 +158,7 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/weather_forecast_text_view"
+            android:id="@+id/server_value_text_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:maxLines="10"/>
